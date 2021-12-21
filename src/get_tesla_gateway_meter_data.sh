@@ -7,15 +7,23 @@ IP="$(grep 'IP=' secrets |cut -d'=' -f2)"
 
 OUTFILE="../data/tesla_gateway_meter_data.csv"
 
-LOGINCMD="curl -s -k -i \
-          -c ./cookie.txt \
-          -X POST \
-          -H ""Content-Type: application/json"" \
-          -d @./creds.json \
-          https://$IP/api/login/Basic"
+LOGINCMD=(curl -s -k -i
+          -c ./cookie.txt
+          -X POST
+          -H "Content-Type: application/json"
+          -d @./creds.json
+          https://$IP/api/login/Basic )
 
 # echo "Logging in..."
-$LOGINCMD >/dev/null
+max_retry=5
+counter=0
+until "${LOGINCMD[@]}" |grep token >/dev/null
+do
+    sleep 1
+    [[ counter -eq $max_retry ]] && echo "Failed!" && exit 1
+    #echo "Trying again. Try #$counter"
+    ((counter++))
+done
 
 CMD1="curl -sk -b ./cookie.txt https://$IP/api/meters/aggregates"
 CMD2="curl -sk -b ./cookie.txt https://$IP/api/system_status/soe"
