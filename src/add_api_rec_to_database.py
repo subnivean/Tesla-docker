@@ -40,7 +40,7 @@ lastdate = pd.to_datetime(cursor.fetchone()[0], utc=True)
 #   ~/Sunpower/sunpower_hass/venv/bin/python -msunpower -c ~/Sunpower/sunpower_hass/sunpower.cfg
 # which is run every minute via cron.
 try:
-    orwellout = Path("/tmp/sunpower").read_text()
+    orwellout = Path("/sunpower/sunpower").read_text()
     orwellout = float(orwellout) * ORWELLSHARE
 except (FileNotFoundError, ValueError, TypeError) as e:
     orwellout = 0.00009
