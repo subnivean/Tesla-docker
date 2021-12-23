@@ -43,7 +43,7 @@ try:
     orwellout = Path("/tmp/sunpower").read_text()
     orwellout = float(orwellout) * ORWELLSHARE
 except (FileNotFoundError, ValueError, TypeError) as e:
-    orwellout = 0.0
+    orwellout = 0.00009
 
 df['Orwell_kW'] = orwellout
 
