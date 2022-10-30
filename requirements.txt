@@ -1,0 +1,7 @@
+pandas
+requests
+
+# Useful for data exploration, not strictly required for app:
+ipykernel
+jupyter-console
+jupyter_client
