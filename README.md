@@ -13,8 +13,8 @@ Also requires a `src/secrets` file, which has the form:
 
 ```
 MAC=<Tesla gateway MAC>
-# Set through the Netgear Nighthawk R7000 router 
+# Set through the Netgear Nighthawk R7000 router
 # ('Advanced' tab | Setup | LAN Setup, see 'Address Reservation' at bottom)
 IP=<Tesla gateway ethernet IP>
 
-Run via `./run_docker.sh`
+Run via cron and `./run_docker.sh`. Set this up using `sudo crontab -e`.
