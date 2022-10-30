@@ -17,4 +17,4 @@ MAC=<Tesla gateway MAC>
 # ('Advanced' tab | Setup | LAN Setup, see 'Address Reservation' at bottom)
 IP=<Tesla gateway ethernet IP>
 
-Run via cron and `./run_docker.sh`. Set this up using `sudo crontab -e`.
+Run via cron and `./run_app.sh`. Set this up using `sudo crontab -e`.
