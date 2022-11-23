@@ -41,7 +41,8 @@ CMD4="curl -sk -b ./cookie.txt https://$IP/api/system_status"
     .[3].nominal_full_pack_energy, \
     .[2].grid_status \
     ]
-    | @csv" |./format.py >> $OUTFILE
+    | @csv" |./format.py | ./add_api_rec_to_database.py
+    #| @csv" |./format.py >> $OUTFILE
 
 # Add last record to database
-echo "$(tail -n1 $OUTFILE)" | ./add_api_rec_to_database.py
+#echo "$(tail -n1 $OUTFILE)" | ./add_api_rec_to_database.py
