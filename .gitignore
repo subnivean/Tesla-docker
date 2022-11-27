@@ -1,6 +1,8 @@
-secrets
+*secrets*
 creds.json
 cookie.txt
 energy.sqlite
 tesla_gateway_meter_data.csv
 .devcontainer/
+.powerwall
+/ipython
