@@ -6,4 +6,4 @@ docker run --rm -it \
   -v $SCRIPT_PATH/data:/data \
   -v $SCRIPT_PATH/src:/app \
   -v $SCRIPT_PATH/ipython:/root/.ipython \
-  allinone-py311-pypowerwall /bin/bash --rcfile /bashrc
+  allinone-py311 /bin/bash --rcfile /bashrc
